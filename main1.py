@@ -2,8 +2,8 @@
 def main():
     # Code for main functionality of the program goes here
     print("Hello, word!")
-    print("NILS THORNBERRY")
-    print("Everyone loves Silvers")
+    loc = str(input("Enter Location:"))
+    print(loc)
 
 if __name__ == '__main__':
     main()
