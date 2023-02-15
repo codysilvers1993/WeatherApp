@@ -5,7 +5,7 @@ def main():
     print("Hello, word!")
     loc = str(input("Enter Location:"))
     print(loc)
-    x = requests.get('http://www.msn.com')
+    x = requests.get('http://www.yahoo.com')
     print(x.text)
 
 if __name__ == '__main__':
