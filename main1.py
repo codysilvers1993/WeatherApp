@@ -1,4 +1,22 @@
 import requests
+import tkinter as tk
+from tkinter import Label
+
+
+# blank display generator for window
+def display():
+    window = tk.Tk()
+    window.title = 'ClimaChat'
+    label = Label(window, text="Welcome to ClimaChat!")
+    label.pack()
+    width = 600
+    height = 600
+    screen_width = window.winfo_screenwidth()
+    screen_height = window.winfo_screenheight()
+    x = (screen_width // 2) - (width // 2)
+    y = (screen_height // 2) - (height // 2)
+    window.geometry(f"{width}x{height}+{x}+{y}")
+    window.mainloop()
 
 
 # function with city_name and api_key as parameters and returns weather_data
@@ -12,6 +30,8 @@ def get_weather_data(city_name, api_key):
 
 
 def main():
+    # run window function to draw display. loops draw.
+    display()
     # defines api key and city name
     api_key = "e90573d841c1b6685552f55de613bc6a"
     # city name hard coded for testing but will be accessed from user input later
@@ -19,6 +39,7 @@ def main():
     # calls get weather functon and prints info
     weather_data = get_weather_data(city_name, api_key)
     print(weather_data)
+
 
 if __name__ == '__main__':
     main()
