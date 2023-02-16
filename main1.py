@@ -18,7 +18,7 @@ def display():
     # Load the animated GIF image using PIL
     gif = Image.open("cloud.gif")
 
-    # Create a sequence of frames from the GIF image
+    # Create a sequene of frame from the GIF image
     frames = []
     for frame in range(0, gif.n_frames):
         gif.seek(frame)
