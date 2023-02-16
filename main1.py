@@ -9,10 +9,11 @@ import sqlite3
 # Window generator function
 
 def display():
+    # basic window characteristics
     window = tk.Tk()
     window.title('ClimaChat')
     label = Label(window, text="Welcome to ClimaChat!\n Your Resource For Weather Information On Demand!",
-                  font=('Times New Roman', 16, 'bold'))
+                  font=('Arial', 16, 'bold'))
     label.pack()
     width = 600
     height = 600
@@ -22,10 +23,19 @@ def display():
     y = (screen_height // 2) - (height // 2)
     window.geometry(f"{width}x{height}+{x}+{y}")
 
-    text = Text(window, width=50, height=30, background="black", foreground="#fff",
-                font=('Sans Serif', 13, 'italic bold'))
-    text.insert(INSERT, "Hello, What Is Your location?")
-    text.pack(expand=1, fill=BOTH)
+    # Create the labels for the text boxes
+    username_label = tk.Label(window, text="Username", anchor="w", foreground="black", font=("Arial", 14))
+    password_label = tk.Label(window, text="Password", anchor="w", foreground="black", font=("Arial", 14))
+
+    # initialize the textboxes
+    username_textbox = tk.Entry(window, width=30, font=("Arial", 14))
+    password_textbox = tk.Entry(window, width=30, font=("Arial", 14))
+
+    # display the labels and text boxes into the window(fill = x fills entire horizontal space)
+    username_label.pack(fill="x")
+    username_textbox.pack(fill="x")
+    password_label.pack(fill="x")
+    password_textbox.pack(fill="x")
 
     window.mainloop()
 
@@ -38,6 +48,15 @@ def store_personal_info(first_name, last_name, location):
         'location': location
     }
     return user
+
+
+# test functions for when I implement buttons for register and login.
+def test_login_button():
+    print("login button clicked")
+
+
+def test_register_button():
+    print("register button clicked")
 
 
 # function to initialize database table with three columns,(first_name, last_name, and location). Will only create
@@ -59,6 +78,7 @@ def get_weather_data(city_name, api_key):
     response = requests.get(url)
     weather_data = response.json()
     return weather_data
+
 
 def main():
     # Create database_of_personal_info table database on startup.
