@@ -30,7 +30,7 @@ def display():
     window.mainloop()
 
 
-# function that stores user information into constructor (python dictionary) and returns a user
+# function that stores userinformation into constructor (python dictionary) and returns a user
 def store_personal_info(first_name, last_name, location):
     user = {
         'first_name': first_name,
