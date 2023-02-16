@@ -6,7 +6,7 @@ import spacy
 import sqlite3
 
 
-# blank display generator for window
+# Window generator function
 
 def display():
     window = tk.Tk()
@@ -30,7 +30,7 @@ def display():
     window.mainloop()
 
 
-# function that stores user information into constructor (python dictionary) and returns a user
+# Function that stores user information into constructor (python dictionary) and returns a user.
 def store_personal_info(first_name, last_name, location):
     user = {
         'first_name': first_name,
@@ -40,8 +40,8 @@ def store_personal_info(first_name, last_name, location):
     return user
 
 
-# function to initialize database containing table with columns first_name, last_name, and location. Will only create
-# once and will check if already created.
+# function to initialize database table with three columns,(first_name, last_name, and location). Will only create
+# Once and will check if already created. If already created will not execute.
 def database_of_personal_info():
     conn = sqlite3.connect('user_database')
     c = conn.cursor()
@@ -51,7 +51,7 @@ def database_of_personal_info():
     conn.close()
 
 
-# function with city_name and api_key as parameters and returns weather_data
+# Function with city_name and api_key as parameters and returns weather_data
 def get_weather_data(city_name, api_key):
     # Retrieves only CURRENT WEATHER AND FORECAST data for a given city using the OpenWeatherMap API.
     # Just activated private key, website says it will take a couple hours before private key is active.
@@ -61,15 +61,16 @@ def get_weather_data(city_name, api_key):
     return weather_data
 
 def main():
-    # create user database on startup
+    # Create database_of_personal_info table database on startup.
     database_of_personal_info()
-    # run window function to draw display. loops draw.
+    # Run window function to draw display. loops draw.
     display()
-    # defines api key and city name
+    # Define API key(Only good for 60 calls a day)
     api_key = "e90573d841c1b6685552f55de613bc6a"
-    # city name hard coded for testing but will be accessed from user input later
+    # City name hard coded for testing but will be accessed from user input later
     city_name = "london"
-    # calls get weather function and prints info
+    # Calls weather function and prints info for testing
+    # Only prints string so that's an issue.
     weather_data = get_weather_data(city_name, api_key)
     print(weather_data)
 
