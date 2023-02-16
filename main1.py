@@ -1,9 +1,11 @@
 import requests
 import tkinter as tk
+from tkinter import ttk
 from tkinter import Label
 from tkinter import *
 import spacy
 import sqlite3
+from PIL import Image, ImageTk
 
 
 # Window generator function
@@ -11,6 +13,38 @@ import sqlite3
 def display():
     # Basic window characteristics
     window = tk.Tk()
+    window.geometry("600x400")
+
+    # Load the animated GIF image using PIL
+    gif = Image.open("cloud.gif")
+
+    # Create a sequence of frames from the GIF image
+    frames = []
+    for frame in range(0, gif.n_frames):
+        gif.seek(frame)
+        frames.append(ImageTk.PhotoImage(gif))
+
+    # Create a label to hold the GIF image
+    label = Label(window)
+    label.pack(fill=BOTH, expand=YES)
+
+    # Function to loop through the frames and display them in the label
+    def update(ind):
+        frame = frames[ind]
+        ind += 1
+        if ind == len(frames):
+            ind = 0
+        label.configure(image=frame)
+        window.after(100, update, ind)
+
+    # Start the loop to update the GIF frames
+    window.after(0, update, 0)
+
+    # create transparent styles for the text boxes and buttons
+    style = ttk.Style(window)
+    style.configure('Transparent.TEntry', background='systemTransparent')
+    style.configure('Transparent.TButton', background='systemTransparent')
+
     window.title('ClimaChat')
     label = Label(window, text="Welcome to ClimaChat!\n Your Resource For Weather Information On Demand!",
                   font=('Arial', 16, 'bold'))
@@ -99,8 +133,12 @@ def main():
     city_name = "london"
     # Calls weather function and prints info for testing
     # Only prints string so that's an issue.
-    weather_data = get_weather_data(city_name, api_key)
-    print(weather_data)
+
+
+# deactivated api call
+
+# weather_data = get_weather_data(city_name, api_key)
+# print(weather_data)
 
 
 if __name__ == '__main__':
