@@ -45,8 +45,7 @@ def display():
     style.configure('Transparent.TEntry', background='systemTransparent')
     style.configure('Transparent.TButton', background='systemTransparent')
 
-
-# Specify window size/height parameters
+    # Specify window size/height parameters
     window.title('ClimaChat')
     label = Label(window, text="Welcome to ClimaChat!\n Your Resource For Weather Information On Demand!",
                   font=('Arial', 16, 'bold'))
@@ -137,7 +136,7 @@ def main():
     # Only prints string so that's an issue.
 
 
-# deactivated api call so we dont run out of calls!
+# deactivated api call, so we don't run out of calls!
 
 # weather_data = get_weather_data(city_name, api_key)
 # print(weather_data)
