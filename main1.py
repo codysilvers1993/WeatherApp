@@ -1,6 +1,7 @@
 import requests
 import tkinter as tk
 from tkinter import Label
+from tkinter import *
 
 
 # blank display generator for window
@@ -8,7 +9,8 @@ from tkinter import Label
 def display():
     window = tk.Tk()
     window.title('ClimaChat')
-    label = Label(window, text="Welcome to ClimaChat!")
+    label = Label(window, text="Welcome to ClimaChat!\n Your Resource For Weather Information On Demand!",
+                  font=('Times New Roman', 13, 'bold'))
     label.pack()
     width = 600
     height = 600
@@ -17,6 +19,12 @@ def display():
     x = (screen_width // 2) - (width // 2)
     y = (screen_height // 2) - (height // 2)
     window.geometry(f"{width}x{height}+{x}+{y}")
+
+    text = Text(window, width=50, height=30, background="black", foreground="#fff",
+                font=('Sans Serif', 13, 'italic bold'))
+    text.insert(INSERT, "Hello, What Is Your location?")
+    text.pack(expand=1, fill=BOTH)
+
     window.mainloop()
 
 
