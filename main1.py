@@ -9,7 +9,7 @@ import sqlite3
 # Window generator function
 
 def display():
-    # basic window characteristics
+    # Basic window characteristics
     window = tk.Tk()
     window.title('ClimaChat')
     label = Label(window, text="Welcome to ClimaChat!\n Your Resource For Weather Information On Demand!",
@@ -23,22 +23,22 @@ def display():
     y = (screen_height // 2) - (height // 2)
     window.geometry(f"{width}x{height}+{x}+{y}")
 
-    # Create the labels for the text boxes
+    # Create the labels for the text boxes, username and password
     username_label = tk.Label(window, text="Username", anchor="w", foreground="black", font=("Arial", 14))
     password_label = tk.Label(window, text="Password", anchor="w", foreground="black", font=("Arial", 14))
 
-    # initialize the textboxes
+    # Initialize the text boxes
     username_textbox = tk.Entry(window, width=30, font=("Arial", 14))
     password_textbox = tk.Entry(window, width=30, font=("Arial", 14))
 
-    # display the labels and text boxes into the window(fill = x fills entire horizontal space)
+    # Display the labels and text boxes into the window(fill = x fills entire horizontal space)
     username_label.pack(fill="x")
     username_textbox.pack(fill="x")
     password_label.pack(fill="x")
     password_textbox.pack(fill="x")
 
+    # Draw window continuously until program exit.
     window.mainloop()
-
 
 # Function that stores user information into constructor (python dictionary) and returns a user.
 def store_personal_info(first_name, last_name, location):
@@ -50,7 +50,7 @@ def store_personal_info(first_name, last_name, location):
     return user
 
 
-# test functions for when I implement buttons for register and login.
+# Iest functions for when I implement buttons for register and login.
 def test_login_button():
     print("login button clicked")
 
@@ -59,7 +59,7 @@ def test_register_button():
     print("register button clicked")
 
 
-# function to initialize database table with three columns,(first_name, last_name, and location). Will only create
+# Function to initialize database table with three columns (first_name, last_name, and location). Will only create
 # Once and will check if already created. If already created will not execute.
 def database_of_personal_info():
     conn = sqlite3.connect('user_database')
