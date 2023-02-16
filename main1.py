@@ -37,8 +37,16 @@ def display():
     password_label.pack(fill="x")
     password_textbox.pack(fill="x")
 
+    # Creates buttons for login and register, buttons will print message as test
+    login_button = tk.Button(window, text="Login", command=test_login_button, width=20, height=2, font="10")
+    register_button = tk.Button(window, text="Register", command=test_register_button, width=20, height=2, font="10")
+
+    login_button.pack(side=tk.LEFT, padx=5, pady=5, anchor=tk.N)
+    register_button.pack(side=tk.LEFT, padx=5, pady=5, anchor=tk.N)
+
     # Draw window continuously until program exit.
     window.mainloop()
+
 
 # Function that stores user information into constructor (python dictionary) and returns a user.
 def store_personal_info(first_name, last_name, location):
@@ -62,7 +70,7 @@ def test_register_button():
 # Function to initialize database table with three columns (first_name, last_name, and location). Will only create
 # Once and will check if already created. If already created will not execute.
 def database_of_personal_info():
-    conn = sqlite3.connect('user_database')
+    conn = sqlite3.connect('database_of_personal_info')
     c = conn.cursor()
     c.execute('''CREATE TABLE IF NOT EXISTS user_database
                  (first_name text, last_name text, location text)''')
