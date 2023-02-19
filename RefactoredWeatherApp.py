@@ -42,7 +42,7 @@ textfield.focus()
 button = tk.Button(mainWindow, text="Generate Request", font=("Arial", 14), command=print_weather_data)
 button.place(x=50, y=100)
 
-# label
+# labels
 windTitleLabel = Label(mainWindow, text="WIND", font=("Times New Roman", 15, "bold"), fg="black", bg="#1ab5ef")
 windTitleLabel.place(x=10, y=366)
 humidityTitleLabel = Label(mainWindow, text="HUMIDITY", font=("Times New Roman", 15, "bold"), fg="black", bg="#1ab5ef")
