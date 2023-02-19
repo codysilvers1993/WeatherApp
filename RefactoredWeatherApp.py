@@ -11,8 +11,9 @@ mainWindow.title("ClimaChat")
 mainWindow.geometry("500x500")
 mainWindow.resizable(False, False)
 
+
 # test function to print API data to console
-def print_weather_data():
+def printWeatherData():
     city_name = getCityName()
     weather_data = getWeatherData(city_name)
     print(weather_data)
@@ -34,13 +35,14 @@ def getCityName():
 
 
 # chatbox
-label = tk.Label(mainWindow, text="Welcome To ClimaChat, Please Enter Your City!", font=("Arial", 16))
+label = tk.Label(mainWindow, text="Welcome To ClimaChat\n Please Enter Your City For Current Weather Information",
+                 font=("Arial", 14))
 label.pack(pady=10)
 textfield = tk.Entry(mainWindow, justify="center", width=17, font=("Times New Roman", 25, "bold"), bg="light blue")
-textfield.place(x=10, y=50)
+textfield.place(x=95, y=65)
 textfield.focus()
-button = tk.Button(mainWindow, text="Generate Request", font=("Arial", 14), command=print_weather_data)
-button.place(x=50, y=100)
+button = tk.Button(mainWindow, text="Generate Request", font=("Arial", 14), command=printWeatherData)
+button.place(x=148, y=115)
 
 # labels
 windTitleLabel = Label(mainWindow, text="WIND", font=("Times New Roman", 15, "bold"), fg="black", bg="#1ab5ef")
