@@ -129,7 +129,7 @@ def main():
     # Run window function to draw display. loops draw.
     display()
     # Define API key(Only good for 60 calls a day)
-    api_key = "e90573d841c1b6685552f55de613bc6a"
+    api_key = ""
     # City name hard coded for testing but will be accessed from user input later
     city_name = "london"
     # Calls weather function and prints info for testing
